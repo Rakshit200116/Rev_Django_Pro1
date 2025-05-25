@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In</title>
+  <link rel="stylesheet" href="{% static 'todopro/signup.css' %}" />
+</head>
+<body id = 'card'>
+  <div class="login_form">
+    <!-- Login form container -->
+    <form action="/loginpage" method="post">
+        {% csrf_token %}
+      <h2 id = 'title'>Sign In</h2>
+      <!-- Login option separator --><br/>
+      <p class="separator">
+      </p>
+      <div class="input_box">
+        <label >UserName</label>
+        <input type="text"  placeholder="Enter User name" name = 'fnam' required />
+      </div>
+      <!-- Paswwrod input box -->
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">Password</label>
+        </div>
+        <input type="password" name = 'Pwd' placeholder="Enter your password" required />
+      </div>
+       <!-- Login button -->
+      <button class = 'form_button' type="submit">Sign In</button>
+      <p class="sign_up">Don't have an account? <a href="/">Sign Up</a></p>
+    </form>
+  </div>
+</body>
+</html>

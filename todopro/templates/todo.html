@@ -1,0 +1,44 @@
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="{% static 'todopro/signup.css' %}" />
+
+</head>
+
+<body>
+    <form action="/loginpage">
+        <h3 id = 'user' class="Out">Username - {{users}}</h3>
+        <button id = 'sn' class = 'Out' type="submit">SIGN OUT</button>
+    </form>
+    <div id='card'>
+        <div class="login_form">
+            <h1 class='cont'>Current Tasks</h1>
+            <br>
+            <hr>
+            <ul class="list-group list-group-flush">
+                {% for tile in task %}
+                <dt class="list-group-item">
+                    {{tile.title}} -
+                    <a class="badge text-bg-primary" href="{% url 'delete' tile.title %}" type="submit">Delete</a>
+                    {% endfor %}
+                </dt>
+                </ul>
+        </div>
+        <div id='todo' class="login_form">
+            <h1 class="cont">Add a Task</h1><br>
+            <hr>
+            <form method="post">
+                {% csrf_token %}
+                <div id = 'task_box' class = 'input_box'>
+                    <input required placeholder="Add a task here" name='tit'>
+                </div>
+                <div>
+                    <input id = 'done' class = 'form_button' type="submit" value="Done" placeholder="Your password">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
